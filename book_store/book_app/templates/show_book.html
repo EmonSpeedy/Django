@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+<div style="width: 80%; margin: auto">
+  <h1>List of books are available</h1>
+  {% if booklist %}
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Book Name</th>
+        {% comment %} <th scope="col">Author</th>
+        <th scope="col">Category</th>
+        <th scope="col">First publication</th>
+        <th scope="col">Last publication</th>
+        <th scope="col">Action</th> {% endcomment %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in booklist %}
+      <tr>
+        <td>{{item.id}}</td>
+        <td><a href="{% url 'bookdetails' item.id %} ">{{item.book_name}}</a></td>
+        {% comment %} <td>{{item.author}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.first_pub}}</td>
+        <td>{{item.last_pub}}</td>
+        <td>
+          <a
+            href="{% url 'editbook' id=item.id %}"
+            class="btn btn-warning btn-sm"
+            >Edit</a
+          >
+          <a href="{% url 'deletebook' id=item.id %}" class="btn btn-danger btn-sm">Delete</a> {% endcomment %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h1>No data is available to show</h1>
+  {% endif %}
+</div>
+{% endblock %}

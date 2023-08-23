@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'first/css/first.css' %}">
+    </head>
+    <body>
+        <h1> We are inside app </h1>
+        <h1> Author name : {{author}} </h1>
+        <img src="{% static 'first/images/image1.jpg' %}" alt="An image">
+        <!-- {% comment %} {% if age >= 18 %}
+        <p>You are allowed to take driving license.</p>
+        {% else %}
+        <p>Yor are a child go home little pal.</p>
+        {% endif %} {% endcomment %}
+        {% comment %} {% if marks >= 80 %}
+        <p>You got A+.</p>
+        {% elif marks >= 50 %}
+        <p>You are passed as usual.</p>
+        {% else %}
+        <p>You have failed.</p>
+        {% endif %} {% endcomment %} -->
+        <!-- <table border = "1" width = 500>
+            <tr>
+                <th>ID</th>
+                <th>Course</th>
+                <th>Teacher</th>
+            </tr>
+            {% for i in courses %}
+            <tr>
+                <td> {{i.id}} </td>
+                <td> {{i.course}} </td>
+                <td> {{i.teacher}} </td>
+            </tr>
+            {% endfor %}
+        </table> -->
+        <!-- Add value -->
+        <h1>{{marks | add:"5"}} </h1>
+        <!-- Divisible check -->
+        <h1>{{marks | divisibleby:"2"}} </h1>
+        <!-- length of string -->
+        <h1> {{name | length}} </h1>
+        <!-- word count -->
+        <h1> {{name | wordcount}} </h1>
+        <!-- truncate word -->
+        <h1> {{blog | truncatewords:9}} </h1>
+        <!-- truncate chars -->
+        <h1> {{name | truncatechars:10}} </h1>
+        <!-- make list -->
+        <h1> {{name | make_list}} </h1>
+        <!-- upper case -->
+        <h1> {{name | upper}} </h1>
+        <!-- lower case -->
+        <h1> {{name | lower}} </h1>
+        <!-- join -->
+        <h1> {{lists | join:"-"}} </h1>
+    </body>
+</html>
